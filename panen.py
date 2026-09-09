@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyOiOYb7Fo+iof53lome98Uy",
+      "authorship_tag": "ABX9TyMZPQGj7/JJ9bfHqHjpDfwy",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -28,13 +28,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 2,
+      "execution_count": 5,
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "90HvqeCsTorn",
-        "outputId": "8d7e0cad-39a4-4e3a-bcac-c4447c68a913"
+        "outputId": "32bd1893-dff4-4429-887e-bf174be85c17"
       },
       "outputs": [
         {
@@ -42,37 +42,16 @@
           "name": "stdout",
           "text": [
             "SISTEM PENCATATAN HASIL PANEN\n",
-            "Jumlah panen : 100 kg\n",
-            "Harga per kg : Rp 8000\n",
-            "Total hasil panen : Rp 800000\n"
+            "Jumlah panen         : 100 kg\n",
+            "Harga per kg         : Rp 8000\n",
+            "Total hasil panen    : Rp 800000\n",
+            "Diskon 10 %           : Rp 80000.0\n",
+            "Total setelah diskon : Rp 720000.0\n"
           ]
         }
       ],
       "source": [
-        "# Program Penghitung Total Hasil Panen\n",
-        "\n",
-        "def hitung_total_panen(jumlah_kg, harga_per_kg):\n",
-        "    return jumlah_kg * harga_per_kg\n",
-        "\n",
-        "\n",
-        "# Data hasil panen\n",
-        "jumlah_panen = 100\n",
-        "harga_per_kg = 8000\n",
-        "\n",
-        "# Menghitung total\n",
-        "total = hitung_total_panen(jumlah_panen, harga_per_kg)\n",
-        "\n",
-        "# Menampilkan hasil\n",
-        "print(\"SISTEM PENCATATAN HASIL PANEN\")\n",
-        "print(\"Jumlah panen :\", jumlah_panen, \"kg\")\n",
-        "print(\"Harga per kg :\", \"Rp\", harga_per_kg)\n",
-        "print(\"Total hasil panen : Rp\", total)"
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Program Penghitung Total Hasil Panen + Diskon\n",
+        "# SISTEM PENCATATAN HASIL PANEN\n",
         "\n",
         "def hitung_total_panen(jumlah_kg, harga_per_kg):\n",
         "    return jumlah_kg * harga_per_kg\n",
@@ -98,31 +77,60 @@
         "\n",
         "# Menampilkan hasil\n",
         "print(\"SISTEM PENCATATAN HASIL PANEN\")\n",
-        "print(\"Jumlah panen          :\", jumlah_panen, \"kg\")\n",
-        "print(\"Harga per kg          : Rp\", harga_per_kg)\n",
-        "print(\"Total hasil panen     : Rp\", total)\n",
+        "print(\"Jumlah panen         :\", jumlah_panen, \"kg\")\n",
+        "print(\"Harga per kg         : Rp\", harga_per_kg)\n",
+        "print(\"Total hasil panen    : Rp\", total)\n",
         "print(\"Diskon\", persen_diskon, \"%           : Rp\", diskon)\n",
-        "print(\"Total setelah diskon  : Rp\", total_setelah_diskon)"
+        "print(\"Total setelah diskon : Rp\", total_setelah_diskon)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "kode = '''\n",
+        "def hitung_total_panen(jumlah_kg, harga_per_kg):\n",
+        "    return jumlah_kg * harga_per_kg\n",
+        "\n",
+        "\n",
+        "def hitung_diskon(total, persen_diskon):\n",
+        "    return total * persen_diskon / 100\n",
+        "\n",
+        "\n",
+        "jumlah_panen = 100\n",
+        "harga_per_kg = 8000\n",
+        "persen_diskon = 10\n",
+        "\n",
+        "total = hitung_total_panen(jumlah_panen, harga_per_kg)\n",
+        "diskon = hitung_diskon(total, persen_diskon)\n",
+        "total_setelah_diskon = total - diskon\n",
+        "\n",
+        "print(\"SISTEM PENCATATAN HASIL PANEN\")\n",
+        "print(\"Jumlah panen         :\", jumlah_panen, \"kg\")\n",
+        "print(\"Harga per kg         : Rp\", harga_per_kg)\n",
+        "print(\"Total hasil panen    : Rp\", total)\n",
+        "print(\"Diskon\", persen_diskon, \"%           : Rp\", diskon)\n",
+        "print(\"Total setelah diskon : Rp\", total_setelah_diskon)\n",
+        "'''\n",
+        "\n",
+        "with open(\"panen.py\", \"w\") as file:\n",
+        "    file.write(kode)\n",
+        "\n",
+        "print(\"File panen.py berhasil dibuat!\")"
       ],
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "qPamdY4OU2yA",
-        "outputId": "3cabe0f3-8904-40f8-c605-af9b5e5b77f7"
+        "outputId": "c064629a-cfd6-4d59-b26e-f43ab1f37ac2"
       },
-      "execution_count": 4,
+      "execution_count": 6,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "SISTEM PENCATATAN HASIL PANEN\n",
-            "Jumlah panen          : 100 kg\n",
-            "Harga per kg          : Rp 8000\n",
-            "Total hasil panen     : Rp 800000\n",
-            "Diskon 10 %           : Rp 80000.0\n",
-            "Total setelah diskon  : Rp 720000.0\n"
+            "File panen.py berhasil dibuat!\n"
           ]
         }
       ]
